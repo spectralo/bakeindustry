@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var SPEED : float = 350
-@export var ZOOM : float = 5
+@export var ZOOM : float = 0.9
 var target_zoom : float = ZOOM
 
 func _process(delta):
@@ -18,3 +18,7 @@ func _input(event):
 			target_zoom = clamp(target_zoom + 0.5, 2, 25)
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			target_zoom = clamp(target_zoom - 0.5, 2, 25)
+
+func _ready() -> void:
+	# $HUD.show()
+	pass
