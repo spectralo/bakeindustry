@@ -15,15 +15,18 @@ config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/bg_color=Color(0.196078, 0.2, 0.32549, 1)
 config/icon="res://icon.svg"
 
+[autoload]
+
+Debug="*res://scripts/debug.gd"
+
 [display]
 
 window/size/viewport_width=3840
 window/size/viewport_height=2160
 window/size/mode=4
-window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-mouse_cursor/custom_image="res://assets/cursoraseprite2.png"
+mouse_cursor/custom_image="res://assets/cursoraseprite3.png"
 
 [input]
 
@@ -45,6 +48,11 @@ down={
 up={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+]
+}
+debug={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

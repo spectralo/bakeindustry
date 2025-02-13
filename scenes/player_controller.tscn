@@ -10,4 +10,3 @@ script = ExtResource("1_1ay8j")
 position_smoothing_enabled = true
 
 [node name="HUD" parent="." instance=ExtResource("2_eq0vu")]
-visible = false
