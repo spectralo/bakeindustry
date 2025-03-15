@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://x2jvib7yndaw" path="res://scenes/player_controller.tscn" id="2_jmpb2"]
 [ext_resource type="Texture2D" uid="uid://cdr6mkrw2y1xc" path="res://assets/conveyors.png" id="4_ddqp5"]
 [ext_resource type="Texture2D" uid="uid://c2bq7hqnrjixl" path="res://assets/utilstiles.png" id="4_ucbsd"]
-[ext_resource type="PackedScene" uid="uid://bm12phdf8a46" path="res://scenes/spawner.tscn" id="7_7qr1p"]
+[ext_resource type="Script" uid="uid://dornusq622hr0" path="res://scenes/test.gd" id="7_e66cg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gio65"]
 shader = ExtResource("1_g5j3w")
@@ -263,11 +263,12 @@ tile_set = SubResource("TileSet_p0xcg")
 
 [node name="ItemContainer" type="Node2D" parent="." groups=["item_container", "itemcontainer"]]
 
-[node name="spawner" parent="." node_paths=PackedStringArray("itemcontainer") instance=ExtResource("7_7qr1p")]
-position = Vector2(326, 73)
-itemcontainer = NodePath("../ItemContainer")
-
 [node name="PathContainer" type="Node2D" parent="."]
 
 [node name="Path2D" type="Path2D" parent="PathContainer"]
 curve = SubResource("Curve2D_x0xbu")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("7_e66cg")
+
+[node name="Line2D" type="Line2D" parent="Node2D"]
