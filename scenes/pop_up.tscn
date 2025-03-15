@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://enhd23f65oyk"]
+
+[ext_resource type="Texture2D" uid="uid://bdf7ceg0dwcid" path="res://assets/buttons/panelpopup.png" id="1_ui8ff"]
+[ext_resource type="Script" uid="uid://diprttchwf5tq" path="res://scenes/pop_up.gd" id="1_vln5t"]
+
+[sub_resource type="Animation" id="Animation_vln5t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("popup/NinePatchRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ui8ff"]
+resource_name = "popup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("popup/NinePatchRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtdy0"]
+_data = {
+&"RESET": SubResource("Animation_vln5t"),
+&"popup": SubResource("Animation_ui8ff")
+}
+
+[node name="PopUp" type="Control"]
+layout_mode = 3
+anchor_right = 15.0
+anchor_bottom = 15.0
+offset_right = -53760.0
+offset_bottom = -30240.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(15, 15)
+script = ExtResource("1_vln5t")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gtdy0")
+}
+
+[node name="popup" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="popup"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.9876
+offset_top = 14.8757
+offset_right = 57.9876
+offset_bottom = 43.8757
+grow_vertical = 0
+texture = ExtResource("1_ui8ff")
+region_rect = Rect2(8, 14, 26, 22)
+patch_margin_left = 8
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 4
+metadata/_edit_use_anchors_ = true

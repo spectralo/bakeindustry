@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bxgq2lovn4iph"]
+
+[ext_resource type="FontFile" uid="uid://b58lldqu54y4t" path="res://assets/Monogram font by datagoblin.ttf" id="1_86k24"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wttau"]
+bg_color = Color(0.215686, 0.305882, 0.290196, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86k24"]
+bg_color = Color(0.698039, 0.729412, 0.564706, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[resource]
+default_font = ExtResource("1_86k24")
+Button/colors/font_color = Color(0.215686, 0.305882, 0.290196, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/font_sizes/font_size = 64
+Button/fonts/font = ExtResource("1_86k24")
+Button/styles/focus = SubResource("StyleBoxFlat_wttau")
+Button/styles/hover_pressed_mirrored = null
+Button/styles/normal = SubResource("StyleBoxFlat_86k24")
+redbutton/base_type = &"Button"

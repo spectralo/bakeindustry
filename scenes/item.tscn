@@ -1,19 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://4fekvwf8taqr"]
+[gd_scene load_steps=4 format=3 uid="uid://dledsecooysxk"]
 
-[ext_resource type="Script" path="res://scenes/item.gd" id="1_i7jve"]
+[ext_resource type="Script" uid="uid://cm1c1q5tcq1lj" path="res://scenes/item.gd" id="1_i7jve"]
 [ext_resource type="Texture2D" uid="uid://beyacu6o6wxee" path="res://assets/items/wheat.png" id="2_c1yx4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mp4n"]
-size = Vector2(38, 38)
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8enn"]
+radius = 3.73103
 
 [node name="Item" type="CharacterBody2D"]
 script = ExtResource("1_i7jve")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_5mp4n")
+position = Vector2(-0.5, -2.875)
+rotation = 0.794817
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_s8enn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 4)
 scale = Vector2(3, 3)
 texture = ExtResource("2_c1yx4")

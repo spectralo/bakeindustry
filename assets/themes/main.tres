@@ -1,3 +1,7 @@
-[gd_resource type="Theme" format=3 uid="uid://dtu41boea0cmt"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dtu41boea0cmt"]
+
+[ext_resource type="FontFile" uid="uid://b58lldqu54y4t" path="res://assets/Monogram font by datagoblin.ttf" id="1_aiue4"]
 
 [resource]
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_aiue4")

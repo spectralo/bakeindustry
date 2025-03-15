@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://x2jvib7yndaw"]
 
-[ext_resource type="Script" path="res://scenes/player_controller.gd" id="1_1ay8j"]
+[ext_resource type="Script" uid="uid://b2jvk5vhosadj" path="res://scenes/player_controller.gd" id="1_1ay8j"]
 [ext_resource type="PackedScene" uid="uid://bslsih1ad4lgi" path="res://scenes/hud.tscn" id="2_eq0vu"]
 
 [node name="PlayerController" type="Node2D"]
@@ -10,3 +10,4 @@ script = ExtResource("1_1ay8j")
 position_smoothing_enabled = true
 
 [node name="HUD" parent="." instance=ExtResource("2_eq0vu")]
+visible = false

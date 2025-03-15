@@ -1,68 +1,760 @@
-[gd_scene load_steps=5 format=3 uid="uid://bslsih1ad4lgi"]
+[gd_scene load_steps=34 format=3 uid="uid://bslsih1ad4lgi"]
 
-[ext_resource type="Script" path="res://scenes/hud.gd" id="1_gnond"]
-[ext_resource type="Texture2D" uid="uid://dtf2pbpmwwa1l" path="res://assets/ui/btnvalidate.png" id="2_btq5t"]
-[ext_resource type="Texture2D" uid="uid://dxkkno6kju7xr" path="res://assets/ui/btncancel.png" id="3_2gagm"]
+[ext_resource type="Texture2D" uid="uid://b0yjyxtjmnqdu" path="res://assets/buttons/ui2.png" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://e2x2mnqibjst" path="res://scenes/hud.gd" id="1_gnond"]
+[ext_resource type="Texture2D" uid="uid://dg0cku6wf14yv" path="res://assets/buttons/beltnonfocus.png" id="3_uo2fv"]
+[ext_resource type="Texture2D" uid="uid://c4c7utxghoylp" path="res://assets/buttons/click.png" id="4_047uy"]
+[ext_resource type="Texture2D" uid="uid://d4cp417fwwsv5" path="res://assets/buttons/beltfocus.png" id="5_047uy"]
+[ext_resource type="Texture2D" uid="uid://cu0glqnvdy4a1" path="res://assets/buttons/pauseuipanel.png" id="6_047uy"]
+[ext_resource type="Texture2D" uid="uid://c0glnh3vt3eim" path="res://assets/buttons/removenonfocus.png" id="6_uxdf7"]
+[ext_resource type="Texture2D" uid="uid://dw8bk07j71cc4" path="res://assets/buttons/pausenonfocus.png" id="7_5pdws"]
+[ext_resource type="Texture2D" uid="uid://c1gdg07iv440g" path="res://assets/buttons/clickred.png" id="7_5357l"]
+[ext_resource type="Texture2D" uid="uid://cm4jcb47arl8d" path="res://assets/buttons/pausefocus.png" id="8_hd3ao"]
+[ext_resource type="Texture2D" uid="uid://bfo4b7smqjya4" path="res://assets/buttons/removefocus.png" id="8_iypfu"]
+[ext_resource type="Texture2D" uid="uid://d0160o7jucxxh" path="res://assets/buttons/pausepanel.png" id="9_0i1j5"]
+[ext_resource type="Texture2D" uid="uid://baej470v5bi73" path="res://assets/buttons/logoutnonfocus.png" id="10_0m4u7"]
+[ext_resource type="Texture2D" uid="uid://7drsrtfrmb27" path="res://assets/buttons/logoutfocus.png" id="11_apjy4"]
+[ext_resource type="Texture2D" uid="uid://3qyw568q60js" path="res://assets/buttons/settingsnonfocus.png" id="12_5n1hp"]
+[ext_resource type="Texture2D" uid="uid://bljy8p48w81ln" path="res://assets/buttons/settingsfocus.png" id="13_eld54"]
+[ext_resource type="Texture2D" uid="uid://ng0gsta65668" path="res://assets/buttons/simplepanel.png" id="14_eld54"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k03qo"]
+[sub_resource type="Animation" id="Animation_uo2fv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bottomdock/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2500, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bottomdock/Control:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("top-left/Control:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("top-left/Control/NinePatchRect:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 15)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("top-left/Control:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PAUSEMENU/ColorRect:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PAUSEMENU:mouse_filter")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PAUSEMENU/ColorRect:mouse_filter")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect:position:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(471.094, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(353.756, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PauseInputBlocker:position:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-10000, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PauseInputBlocker:position:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect/NinePatchRect2:position:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(21.1326, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect/NinePatchRect2:position:y")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(4.00464, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect/NinePatchRect2:size:x")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(40, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect/NinePatchRect2:size:y")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(40, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
 
-[node name="HUD" type="CanvasLayer"]
+[sub_resource type="Animation" id="Animation_ahhtf"]
+resource_name = "dockappear"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bottomdock/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-1000, 0), Vector2(-1000, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bottomdock/Control:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.433333, 0.633333),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.5, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5pdws"]
+resource_name = "everythingappear"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bottomdock/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-1000, 0), Vector2(-1000, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bottomdock/Control:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.433333, 0.633333),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.5, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("top-left/Control:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.299264, 0.7),
+"transitions": PackedFloat32Array(-0.5, -2, -0.5),
+"update": 0,
+"values": [Vector2(0, -500), Vector2(0, -500), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("top-left/Control:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.435108, 0.632234),
+"transitions": PackedFloat32Array(-0.5, -0.5),
+"update": 0,
+"values": [Vector2(1, 0.5), Vector2(1, 1)]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PauseInputBlocker:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-10000, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PauseInputBlocker:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_hd3ao"]
+resource_name = "pause"
+length = 0.34
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PAUSEMENU/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.333)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PAUSEMENU/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667, 0.266667),
+"transitions": PackedFloat32Array(-0.5, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-400, -0.25, 0, 0, 384, 471.094, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.233333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-400, -0.25, 0, 0, 204, 353.756, -0.1, -69.7556, 0.233333, -202.756),
+"times": PackedFloat32Array(0, 0.233333)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PauseInputBlocker:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-10000, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.258409)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PauseInputBlocker:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.258409)
+}
+
+[sub_resource type="Animation" id="Animation_047uy"]
+resource_name = "pauseappear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("top-left/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, -500), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("top-left/Control/NinePatchRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.366667),
+"transitions": PackedFloat32Array(1, -2, -2),
+"update": 0,
+"values": [Vector2(15, 5), Vector2(15, 5), Vector2(15, 15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PAUSEMENU:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PAUSEMENU/ColorRect:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_eld54"]
+resource_name = "settings popup"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect/NinePatchRect2:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(5.92888, -0.2, 0, 0.2, 0, 21.1326, -0.2, 0, 0.2, -22.1326),
+"times": PackedFloat32Array(0, 0.266667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect/NinePatchRect2:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(7.21504, -0.2, 0, 0.2, 0, 4.00464, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.266667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect/NinePatchRect2:size:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(11, -0.2, 0, 0.2, 0, 40, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.266667)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PAUSEMENU/ColorRect/NinePatchRect/NinePatchRect2:size:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(24, -0.2, 0, 0.2, 0, 40, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.266667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ysmq"]
+_data = {
+&"RESET": SubResource("Animation_uo2fv"),
+&"dockappear": SubResource("Animation_ahhtf"),
+&"everythingappear": SubResource("Animation_5pdws"),
+&"pause": SubResource("Animation_hd3ao"),
+&"pauseappear": SubResource("Animation_047uy"),
+&"settings popup": SubResource("Animation_eld54")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0m4u7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apjy4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5n1hp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eld54"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3swnk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkknv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxdf7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5357l"]
+
+[sub_resource type="Theme" id="Theme_0m4u7"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_0m4u7")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_apjy4")
+Button/styles/focus = SubResource("StyleBoxEmpty_5n1hp")
+Button/styles/hover = null
+Button/styles/hover_mirrored = SubResource("StyleBoxEmpty_eld54")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_3swnk")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qkknv")
+Button/styles/normal = SubResource("StyleBoxEmpty_uxdf7")
+Button/styles/normal_mirrored = SubResource("StyleBoxEmpty_5357l")
+Button/styles/pressed = null
+Button/styles/pressed_mirrored = null
+
+[node name="hud" type="CanvasLayer"]
 script = ExtResource("1_gnond")
 
-[node name="BTNCONTAINER" type="Control" parent="."]
+[node name="bottomdock" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-grow_horizontal = 0
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="BTNCONTAINER"]
-layout_mode = 0
-offset_left = -450.0
-offset_top = -228.0
+[node name="Control" type="Control" parent="bottomdock"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="Container" type="NinePatchRect" parent="bottomdock/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_right = 101.0
+offset_bottom = 14.0
+grow_vertical = 0
+scale = Vector2(15, 15)
+pivot_offset = Vector2(0, 15)
+texture = ExtResource("1_ahhtf")
+region_rect = Rect2(15, 9, 24, 23)
+patch_margin_left = 1
+patch_margin_top = 7
+patch_margin_right = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bottomdock/Control"]
+layout_mode = 1
+offset_right = 22.0
+offset_bottom = 16.0
+scale = Vector2(10, 10)
+pivot_offset = Vector2(0, 21)
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="bottomdock/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_right = 1
+
+[node name="conveyorbtn" type="TextureButton" parent="bottomdock/Control/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_uo2fv")
+texture_pressed = ExtResource("4_047uy")
+texture_hover = ExtResource("5_047uy")
+
+[node name="MarginContainer2" type="MarginContainer" parent="bottomdock/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 1
+
+[node name="removebtn" type="TextureButton" parent="bottomdock/Control/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_uxdf7")
+texture_pressed = ExtResource("7_5357l")
+texture_hover = ExtResource("8_iypfu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5ysmq")
+}
+
+[node name="top-right" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 10.0
+offset_right = -50.0
+offset_bottom = 10.0
+grow_horizontal = 0
+
+[node name="top-left" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BTNCONTAINER/MarginContainer"]
-layout_mode = 2
+[node name="Control" type="Control" parent="top-left"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="MarginContainer" type="MarginContainer" parent="BTNCONTAINER/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_right = 30
+[node name="NinePatchRect" type="NinePatchRect" parent="top-left/Control"]
+layout_mode = 0
+offset_right = 14.0
+offset_bottom = 17.0
+scale = Vector2(15, 15)
+texture = ExtResource("6_047uy")
+region_rect = Rect2(8, 15, 25, 21)
+patch_margin_left = 8
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 3
 
-[node name="Cancel" type="Button" parent="BTNCONTAINER/MarginContainer/HBoxContainer/MarginContainer"]
-texture_filter = 1
-material = SubResource("ShaderMaterial_k03qo")
+[node name="HBoxContainer" type="HBoxContainer" parent="top-left/Control"]
+layout_mode = 0
+offset_left = 23.4861
+offset_top = 19.7295
+offset_right = 41.4861
+offset_bottom = 37.7295
+scale = Vector2(10, 10)
+
+[node name="Pause" type="TextureButton" parent="top-left/Control/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-icon = ExtResource("3_2gagm")
+texture_normal = ExtResource("7_5pdws")
+texture_pressed = ExtResource("4_047uy")
+texture_hover = ExtResource("8_hd3ao")
+
+[node name="PauseInputBlocker" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10000.0
+offset_right = -10000.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PAUSEMENU" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="PAUSEMENU"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.215686, 0.305882, 0.290196, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PAUSEMENU/ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -190.32
+offset_top = -400.0
+offset_right = -171.32
+offset_bottom = -366.0
+scale = Vector2(15, 15)
+texture = ExtResource("9_0i1j5")
+region_rect = Rect2(7, 7, 29, 29)
+patch_margin_left = 8
+patch_margin_top = 7
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="PAUSEMENU/ColorRect/NinePatchRect"]
+layout_mode = 0
+offset_left = 5.92888
+offset_top = 7.21504
+offset_right = 16.9289
+offset_bottom = 31.215
+texture = ExtResource("14_eld54")
+region_rect = Rect2(11, 11, 25, 25)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="exit" type="Button" parent="PAUSEMENU/ColorRect/NinePatchRect"]
+layout_mode = 0
+offset_left = -1.07438
+offset_top = -0.848195
+offset_right = 6.92562
+offset_bottom = 7.1518
+theme = SubResource("Theme_0m4u7")
 flat = true
-icon_alignment = 1
-expand_icon = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="BTNCONTAINER/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 30
+[node name="exitgame" type="TextureButton" parent="PAUSEMENU/ColorRect/NinePatchRect"]
+layout_mode = 0
+offset_left = 5.86762
+offset_top = 20.6962
+offset_right = 23.8676
+offset_bottom = 36.6962
+scale = Vector2(0.667, 0.667)
+texture_normal = ExtResource("10_0m4u7")
+texture_pressed = ExtResource("4_047uy")
+texture_hover = ExtResource("11_apjy4")
 
-[node name="Validate" type="Button" parent="BTNCONTAINER/MarginContainer/HBoxContainer/MarginContainer2"]
-texture_filter = 1
-layout_mode = 2
-size_flags_horizontal = 3
-action_mode = 0
-button_mask = 7
-icon = ExtResource("2_btq5t")
-flat = true
-icon_alignment = 1
-expand_icon = true
+[node name="Settings" type="TextureButton" parent="PAUSEMENU/ColorRect/NinePatchRect"]
+layout_mode = 0
+offset_left = 6.40002
+offset_top = 7.67902
+offset_right = 24.4
+offset_bottom = 23.679
+scale = Vector2(0.667, 0.667)
+texture_normal = ExtResource("12_5n1hp")
+texture_pressed = ExtResource("4_047uy")
+texture_hover = ExtResource("13_eld54")
 
-[connection signal="pressed" from="BTNCONTAINER/MarginContainer/HBoxContainer/MarginContainer/Cancel" to="." method="_on_cancel_pressed"]
-[connection signal="pressed" from="BTNCONTAINER/MarginContainer/HBoxContainer/MarginContainer2/Validate" to="." method="_on_validate_pressed"]
+[connection signal="pressed" from="bottomdock/Control/HBoxContainer/MarginContainer/conveyorbtn" to="." method="_on_conveyorbtn_pressed"]
+[connection signal="pressed" from="bottomdock/Control/HBoxContainer/MarginContainer2/removebtn" to="." method="_on_removebtn_pressed"]
+[connection signal="pressed" from="top-left/Control/HBoxContainer/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="PAUSEMENU/ColorRect/NinePatchRect/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="PAUSEMENU/ColorRect/NinePatchRect/exitgame" to="." method="_on_exitgame_pressed"]

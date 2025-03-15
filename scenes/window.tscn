@@ -1,0 +1,133 @@
+[gd_scene load_steps=11 format=3 uid="uid://6my172nwhrdq"]
+
+[ext_resource type="Texture2D" uid="uid://d0fg6yskfnytv" path="res://assets/buttons/uitest.png" id="1_oya5r"]
+[ext_resource type="Script" uid="uid://d3ouy0sevty8j" path="res://scenes/window.gd" id="1_syahi"]
+[ext_resource type="Texture2D" uid="uid://g7bpvxxrn20o" path="res://assets/buttons/returnnonfocus.png" id="2_ato5p"]
+[ext_resource type="Texture2D" uid="uid://dlx1xm3uf3gpv" path="res://assets/buttons/returnfocus.png" id="3_syahi"]
+[ext_resource type="Texture2D" uid="uid://b5cj6qe5d72se" path="res://assets/buttons/acceptnonfocus.png" id="4_ot01e"]
+[ext_resource type="Texture2D" uid="uid://c4c7utxghoylp" path="res://assets/buttons/click.png" id="4_qncfr"]
+[ext_resource type="Texture2D" uid="uid://b5by5jilgxbme" path="res://assets/buttons/acceptfocus.png" id="5_qncfr"]
+
+[sub_resource type="Animation" id="Animation_to7fh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -500)]
+}
+
+[sub_resource type="Animation" id="Animation_oya5r"]
+resource_name = "apearing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/NinePatchRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.166667, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(10, 2.5), Vector2(10, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -500), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_to7fh"]
+_data = {
+&"RESET": SubResource("Animation_to7fh"),
+&"apearing": SubResource("Animation_oya5r")
+}
+
+[node name="AcceptOrDecline" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -500.0
+offset_bottom = -500.0
+script = ExtResource("1_syahi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_to7fh")
+}
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -524.0
+offset_bottom = 102.0
+grow_horizontal = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+offset_right = 50.0
+offset_bottom = 31.0
+scale = Vector2(10, 2.5)
+texture = ExtResource("1_oya5r")
+region_rect = Rect2(12, 7, 31, 29)
+patch_margin_left = 4
+patch_margin_top = 6
+patch_margin_right = 11
+patch_margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 45.0
+offset_bottom = 28.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/NinePatchRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CANCEL" type="TextureButton" parent="Control/NinePatchRect/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_mask = 3
+texture_normal = ExtResource("2_ato5p")
+texture_pressed = ExtResource("4_qncfr")
+texture_hover = ExtResource("3_syahi")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/NinePatchRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ACCEPT" type="TextureButton" parent="Control/NinePatchRect/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_ot01e")
+texture_pressed = ExtResource("4_qncfr")
+texture_hover = ExtResource("5_qncfr")
+
+[node name="EXIT" type="TextureButton" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 38.78
+offset_top = 0.990002
+offset_right = 48.78
+offset_bottom = 4.99
+
+[connection signal="pressed" from="Control/NinePatchRect/HBoxContainer/MarginContainer/CANCEL" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Control/NinePatchRect/HBoxContainer/MarginContainer2/ACCEPT" to="." method="_on_accept_pressed"]

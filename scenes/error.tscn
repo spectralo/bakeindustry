@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7ttt2lsjigro"]
+
+[ext_resource type="Texture2D" uid="uid://ol4cmskyyoiy" path="res://assets/buttons/rederrorpanel.png" id="1_mv2uk"]
+[ext_resource type="Shader" uid="uid://ce0njyewdatjl" path="res://assets/pixel.gdshader" id="1_o0aib"]
+[ext_resource type="Theme" uid="uid://dtu41boea0cmt" path="res://assets/themes/main.tres" id="2_vc1wo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5byuy"]
+shader = ExtResource("1_o0aib")
+
+[node name="error" type="Control"]
+material = SubResource("ShaderMaterial_5byuy")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(15, 15)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 12.0
+texture = ExtResource("1_mv2uk")
+region_rect = Rect2(11, 15, 26, 18)
+patch_margin_left = 4
+patch_margin_top = 1
+patch_margin_right = 4
+patch_margin_bottom = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.4
+offset_top = -1.73333
+offset_right = 49.4
+offset_bottom = 11.2667
+theme = ExtResource("2_vc1wo")
+text = "error"
+horizontal_alignment = 1
+vertical_alignment = 1
