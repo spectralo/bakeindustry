@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2hkhdcv3iun5"]
+
+[ext_resource type="Script" uid="uid://swx8x05bl4up" path="res://scenes/simple_item.gd" id="1_d0i5i"]
+[ext_resource type="Texture2D" uid="uid://b0fmcnm8atpsl" path="res://assets/items/bread.png" id="2_d0i5i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6rey4"]
+radius = 19.5064
+
+[node name="SimpleItem" type="Node2D" node_paths=PackedStringArray("up", "bottom", "left", "right")]
+script = ExtResource("1_d0i5i")
+up = NodePath("top")
+bottom = NodePath("bottom")
+left = NodePath("left")
+right = NodePath("right")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(5, 5)
+texture = ExtResource("2_d0i5i")
+
+[node name="area" type="Area2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area"]
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_6rey4")
+
+[node name="checktimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="top" type="RayCast2D" parent="."]
+target_position = Vector2(44, -22)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="right" type="RayCast2D" parent="."]
+target_position = Vector2(44, 22)
+collide_with_areas = true
+
+[node name="bottom" type="RayCast2D" parent="."]
+target_position = Vector2(-44, 22)
+collide_with_areas = true
+
+[node name="left" type="RayCast2D" parent="."]
+target_position = Vector2(-44, -22)
+collide_with_areas = true
+
+[connection signal="timeout" from="checktimer" to="." method="_on_checktimer_timeout"]

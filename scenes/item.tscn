@@ -22,27 +22,34 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_c1yx4")
 
 [node name="top" type="Area2D" parent="."]
+scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top"]
 position = Vector2(25, -33)
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_s8enn")
 
 [node name="right" type="Area2D" parent="."]
 position = Vector2(4, 53)
+scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
 position = Vector2(25, -33)
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_s8enn")
 
 [node name="bottom" type="Area2D" parent="."]
 position = Vector2(-57, 54)
+scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bottom"]
 position = Vector2(25, -33)
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_s8enn")
 
 [node name="left" type="Area2D" parent="."]
 position = Vector2(-56, 1)
+scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
 position = Vector2(25, -33)

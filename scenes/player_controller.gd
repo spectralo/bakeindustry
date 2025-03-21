@@ -11,7 +11,6 @@ var last_conveyor_point : Vector2i = Vector2i.ZERO
 var conveyors_array : Array = []
 var is_destroying = false
 var destroyed_tiles = []
-var debug = false
 var pathContainer : Node2D
 
 
@@ -66,10 +65,7 @@ func _unhandled_input(event):
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			target_zoom = clamp(target_zoom - 0.2, 0.5, 10)
 		
-	if event.is_action_pressed("debug"):
-		debug = !debug
-		handle_debug()
-		print('debug is : '+str(debug))
+
 	
 
 func _ready() -> void:
@@ -273,25 +269,3 @@ func abort_destroying():
 	is_destroying = false
 
 #endregion
-
-#region debug
-
-func handle_debug():
-	if debug == true:
-		draw_lines()
-	else:
-		remove_lines()
-
-func draw_lines():
-	for i in pathContainer.get_children().size():
-		var path : Path2D = pathContainer.get_children()[i]
-		var line = Line2D.new()
-		line.points = path.curve.get_baked_points()
-		path.add_child(line)
-
-func remove_lines():
-	print("deleting debug traces")
-	var children = pathContainer.get_children()
-	for i in (pathContainer.get_children().size()):
-		print("delted one")
-		children[i].get_children()[0].queue_free()

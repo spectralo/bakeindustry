@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="bakeindustry"
+run/main_scene="uid://bk57ojj02idl5"
 config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/bg_color=Color(0.196078, 0.2, 0.32549, 1)
 config/icon="res://icon.svg"
 
 [autoload]
 
-Debug="*res://scripts/debug.gd"
+Global="*res://scripts/global.gd"
 
 [display]
 
@@ -26,11 +27,12 @@ window/size/viewport_height=2160
 window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=0
 mouse_cursor/custom_image="res://assets/cursoraseprite3.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/copilot/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [input]
 
@@ -68,7 +70,9 @@ pause={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
 environment/glow/upscale_mode=0
 environment/defaults/default_clear_color=Color(0.180392, 0.133333, 0.184314, 1)
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
+lightmapping/main_scene="uid://bk57ojj02idl5"
