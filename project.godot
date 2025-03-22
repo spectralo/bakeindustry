@@ -27,7 +27,6 @@ window/size/viewport_height=2160
 window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/vsync/vsync_mode=0
 mouse_cursor/custom_image="res://assets/cursoraseprite3.png"
 
 [editor_plugins]

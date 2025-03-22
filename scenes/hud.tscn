@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bslsih1ad4lgi"]
+[gd_scene load_steps=48 format=3 uid="uid://bslsih1ad4lgi"]
 
 [ext_resource type="Texture2D" uid="uid://b0yjyxtjmnqdu" path="res://assets/buttons/ui2.png" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://e2x2mnqibjst" path="res://scenes/hud.gd" id="1_gnond"]
@@ -12,12 +12,20 @@
 [ext_resource type="Texture2D" uid="uid://cm4jcb47arl8d" path="res://assets/buttons/pausefocus.png" id="8_hd3ao"]
 [ext_resource type="Texture2D" uid="uid://bfo4b7smqjya4" path="res://assets/buttons/removefocus.png" id="8_iypfu"]
 [ext_resource type="Texture2D" uid="uid://d0160o7jucxxh" path="res://assets/buttons/pausepanel.png" id="9_0i1j5"]
+[ext_resource type="Texture2D" uid="uid://buyrkmk33p0ck" path="res://assets/buttons/decorations.png" id="9_kp442"]
 [ext_resource type="Texture2D" uid="uid://baej470v5bi73" path="res://assets/buttons/logoutnonfocus.png" id="10_0m4u7"]
+[ext_resource type="Texture2D" uid="uid://b5mcykpw48sss" path="res://assets/buttons/decorationnonfocus.png" id="10_gltyx"]
 [ext_resource type="Texture2D" uid="uid://7drsrtfrmb27" path="res://assets/buttons/logoutfocus.png" id="11_apjy4"]
+[ext_resource type="Texture2D" uid="uid://d3r60tivmfp21" path="res://assets/buttons/machines.png" id="11_mgfyp"]
 [ext_resource type="Texture2D" uid="uid://3qyw568q60js" path="res://assets/buttons/settingsnonfocus.png" id="12_5n1hp"]
+[ext_resource type="Texture2D" uid="uid://dprk2kqbtaqxp" path="res://assets/buttons/machinesnonfocus.png" id="12_ptr5m"]
 [ext_resource type="Texture2D" uid="uid://bljy8p48w81ln" path="res://assets/buttons/settingsfocus.png" id="13_eld54"]
+[ext_resource type="Texture2D" uid="uid://cst6d7bqp10pg" path="res://assets/buttons/darkersimplepanel.png" id="13_gltyx"]
 [ext_resource type="Texture2D" uid="uid://ng0gsta65668" path="res://assets/buttons/simplepanel.png" id="14_eld54"]
+[ext_resource type="Texture2D" uid="uid://dm0qn04wgsha1" path="res://assets/buttons/techtree.png" id="17_mgfyp"]
 [ext_resource type="Theme" uid="uid://dtu41boea0cmt" path="res://assets/themes/main.tres" id="18_5357l"]
+[ext_resource type="Texture2D" uid="uid://bey0xw7jh1mlp" path="res://assets/buttons/techtreeclick.png" id="18_of3ib"]
+[ext_resource type="Texture2D" uid="uid://dyhq6s0opa4v6" path="res://assets/buttons/techtreefocus.png" id="19_7600b"]
 [ext_resource type="Texture2D" uid="uid://dndbgh5ko4wqq" path="res://assets/buttons/moneypannel.png" id="19_iypfu"]
 [ext_resource type="Shader" uid="uid://ce0njyewdatjl" path="res://assets/pixel.gdshader" id="20_qpprf"]
 [ext_resource type="FontFile" uid="uid://b58lldqu54y4t" path="res://assets/Monogram font by datagoblin.ttf" id="21_3xg78"]
@@ -593,6 +601,8 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_left = -2500.0
+offset_right = -2500.0
 grow_vertical = 0
 
 [node name="Container" type="NinePatchRect" parent="bottomdock/Control"]
@@ -600,7 +610,7 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_right = 101.0
+offset_right = 68.0
 offset_bottom = 14.0
 grow_vertical = 0
 scale = Vector2(15, 15)
@@ -645,6 +655,32 @@ texture_normal = ExtResource("6_uxdf7")
 texture_pressed = ExtResource("7_5357l")
 texture_hover = ExtResource("8_iypfu")
 
+[node name="MarginContainer3" type="MarginContainer" parent="bottomdock/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 1
+
+[node name="decorationbtn" type="TextureButton" parent="bottomdock/Control/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("9_kp442")
+texture_pressed = ExtResource("4_047uy")
+texture_hover = ExtResource("10_gltyx")
+
+[node name="MarginContainer4" type="MarginContainer" parent="bottomdock/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 1
+
+[node name="machinebtn" type="TextureButton" parent="bottomdock/Control/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("11_mgfyp")
+texture_pressed = ExtResource("4_047uy")
+texture_hover = ExtResource("12_ptr5m")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_5ysmq")
@@ -672,6 +708,19 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="NinePatchRect2" type="NinePatchRect" parent="top-left/Control"]
+layout_mode = 0
+offset_left = 35.0
+offset_right = 60.0
+offset_bottom = 14.0
+scale = Vector2(15, 15)
+texture = ExtResource("13_gltyx")
+region_rect = Rect2(11, 11, 25, 25)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
 [node name="NinePatchRect" type="NinePatchRect" parent="top-left/Control"]
 layout_mode = 0
 offset_right = 14.0
@@ -697,6 +746,17 @@ layout_mode = 2
 texture_normal = ExtResource("7_5pdws")
 texture_pressed = ExtResource("4_047uy")
 texture_hover = ExtResource("8_hd3ao")
+
+[node name="techtree" type="TextureButton" parent="top-left/Control"]
+layout_mode = 0
+offset_left = 186.186
+offset_top = -0.370208
+offset_right = 202.186
+offset_bottom = 15.6298
+scale = Vector2(15, 15)
+texture_normal = ExtResource("17_mgfyp")
+texture_pressed = ExtResource("18_of3ib")
+texture_hover = ExtResource("19_7600b")
 
 [node name="PauseInputBlocker" type="Control" parent="."]
 layout_mode = 3
@@ -872,6 +932,8 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="bottomdock/Control/HBoxContainer/MarginContainer/conveyorbtn" to="." method="_on_conveyorbtn_pressed"]
 [connection signal="pressed" from="bottomdock/Control/HBoxContainer/MarginContainer2/removebtn" to="." method="_on_removebtn_pressed"]
+[connection signal="pressed" from="bottomdock/Control/HBoxContainer/MarginContainer3/decorationbtn" to="." method="_on_removebtn_pressed"]
+[connection signal="pressed" from="bottomdock/Control/HBoxContainer/MarginContainer4/machinebtn" to="." method="_on_removebtn_pressed"]
 [connection signal="pressed" from="top-left/Control/HBoxContainer/Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="PAUSEMENU/ColorRect/NinePatchRect/exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="PAUSEMENU/ColorRect/NinePatchRect/exitgame" to="." method="_on_exitgame_pressed"]
