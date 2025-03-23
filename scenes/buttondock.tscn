@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://3yrdp3w5v2th"]
+
+[ext_resource type="Texture2D" uid="uid://buyrkmk33p0ck" path="res://assets/buttons/decorations.png" id="1_8hxss"]
+[ext_resource type="Script" uid="uid://d4ilcfrp2bqy2" path="res://scenes/buttondock.gd" id="1_la4ex"]
+[ext_resource type="Texture2D" uid="uid://c4c7utxghoylp" path="res://assets/buttons/click.png" id="2_la4ex"]
+[ext_resource type="Texture2D" uid="uid://b5mcykpw48sss" path="res://assets/buttons/decorationnonfocus.png" id="3_bwlft"]
+
+[node name="MarginContainer3" type="MarginContainer"]
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 1
+script = ExtResource("1_la4ex")
+
+[node name="decorationbtn" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_8hxss")
+texture_pressed = ExtResource("2_la4ex")
+texture_hover = ExtResource("3_bwlft")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="pressed" from="decorationbtn" to="." method="_on_decorationbtn_pressed"]

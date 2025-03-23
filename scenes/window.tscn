@@ -129,5 +129,6 @@ offset_top = 0.990002
 offset_right = 48.78
 offset_bottom = 4.99
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Control/NinePatchRect/HBoxContainer/MarginContainer/CANCEL" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="Control/NinePatchRect/HBoxContainer/MarginContainer2/ACCEPT" to="." method="_on_accept_pressed"]

@@ -4,6 +4,7 @@ extends Node2D
 @export var ZOOM : float = 0.5
 var target_zoom : float = ZOOM
 var util_layer : TileMapLayer
+var transparent_layer : TileMapLayer
 var ground_layer : TileMapLayer
 var conveyor_layer : TileMapLayer
 var is_placing_conveyors = false
@@ -12,9 +13,9 @@ var conveyors_array : Array = []
 var is_destroying = false
 var destroyed_tiles = []
 var pathContainer : Node2D
-
-
-signal error(message)
+var is_input_blocked : bool = false
+var is_decorating : bool = false
+var decorations = {}
 
 var conveyors_textures = {
 	"up": Vector2i(0,2),
@@ -36,14 +37,21 @@ var conveyors_textures = {
 }
 
 
+
 func _process(delta):
 	SPEED = 2000 / (log($Camera2D.zoom.x + 1))
-	var velocity = Input.get_vector("left", "right", "up", "down")
-	position += SPEED * velocity * delta
+	if not is_input_blocked:
+		var velocity = Input.get_vector("left", "right", "up", "down")
+		position += SPEED * velocity * delta
 
 	ZOOM += (target_zoom - ZOOM) * 0.1
 	$Camera2D.zoom = Vector2(ZOOM, ZOOM)
+
+func disable_input():
+	is_input_blocked = true
 	
+func enable_input():
+	is_input_blocked = false
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -55,14 +63,18 @@ func _unhandled_input(event):
 				conveyors(world_pos, false)
 			if is_destroying:
 				destroy(world_pos,false)
+			if is_decorating:
+				decoration(world_pos)
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			if is_placing_conveyors:
 				conveyors(world_pos, true)
 			if is_destroying:
 				destroy(world_pos,false)
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			if is_decorating:
+				cancel_last_decoration()
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and is_input_blocked == false:
 			target_zoom = clamp(target_zoom + 0.2, 0.5, 10)
-		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and is_input_blocked == false:
 			target_zoom = clamp(target_zoom - 0.2, 0.5, 10)
 		
 
@@ -73,7 +85,7 @@ func _ready() -> void:
 	ground_layer = get_tree().root.find_child("GroundLayer", true, false)
 	conveyor_layer = get_tree().root.find_child("MachineLayer", true, false)
 	pathContainer = get_tree().root.find_child("PathContainer",true,false)
-	
+	transparent_layer = get_tree().root.find_child("TransparentLayer",true,false)
 	# HUD conveyor placing signal connection
 	$HUD.cancel_conveyor_placing.connect(cancel_conveyor_draw)
 	$HUD.conveyor_placing_ended.connect(generate_conveyors)
@@ -83,6 +95,14 @@ func _ready() -> void:
 	$HUD.start_destroying.connect(start_destroying)
 	$HUD.cancel_destroying.connect(abort_destroying)
 	$HUD.destroying_ended.connect(apply_destroy)
+	
+	# HUD Input blocking signals 
+	$HUD.pause_input.connect(disable_input)
+	$HUD.resume_input.connect(enable_input)
+	
+	$HUD.start_decorations.connect(start_decoration)
+	$HUD.abort_decorations.connect(abort_decoration)
+	$HUD.place_decorations.connect(place_decoration)
 	
 	$HUD.show()
 
@@ -268,4 +288,41 @@ func abort_destroying():
 	destroyed_tiles = []
 	is_destroying = false
 
+#endregion
+
+#region decoration
+
+func start_decoration():
+	is_decorating = true
+
+func abort_decoration():
+	is_decorating = true
+	transparent_layer.clear()
+
+func place_decoration():
+	for pos in decorations:
+		conveyor_layer.set_cell(pos, decorations[pos][0], decorations[pos][1])
+	decorations = {}
+	transparent_layer.clear()
+	is_decorating = true
+
+func decoration(pos):
+	var worldpos = transparent_layer.local_to_map(transparent_layer.to_local(pos))
+	if $HUD.currentile.size() == 2:
+		decorations[worldpos] = [$HUD.currentile[0], $HUD.currentile[1]]
+		generate_trans_layer()
+		
+func cancel_last_decoration():
+	if decorations.size() > 0:
+		# Find the last key added to the dictionary
+		var last_key = decorations.keys()[decorations.size() - 1]
+		decorations.erase(last_key)
+		generate_trans_layer()
+		
+func generate_trans_layer():
+	transparent_layer.clear()
+	if decorations.size() > 0:
+		for pos in decorations:
+			# pos is the key (worldpos), decorations[pos] is the value (array with tile info)
+			transparent_layer.set_cell(pos, decorations[pos][0], decorations[pos][1])
 #endregion

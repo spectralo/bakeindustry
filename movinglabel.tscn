@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm6563aur4bxy"]
+
+[ext_resource type="Theme" uid="uid://dtu41boea0cmt" path="res://assets/themes/main.tres" id="1_n2acq"]
+[ext_resource type="Script" uid="uid://dgexpnmpdkjsy" path="res://scenes/movinglabel.gd" id="2_q5kbp"]
+
+[node name="Label" type="Label"]
+anchors_preset = -1
+anchor_left = 0.255469
+anchor_top = 0.476389
+anchor_right = 0.744531
+anchor_bottom = 0.523611
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_n2acq")
+theme_override_font_sizes/font_size = 180
+text = "Fun fact : this game is open source :))"
+script = ExtResource("2_q5kbp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

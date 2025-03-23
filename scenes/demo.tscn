@@ -1,251 +1,20 @@
-[gd_scene load_steps=19 format=4 uid="uid://bk57ojj02idl5"]
+[gd_scene load_steps=14 format=4 uid="uid://bk57ojj02idl5"]
 
 [ext_resource type="Shader" uid="uid://ce0njyewdatjl" path="res://assets/pixel.gdshader" id="1_g5j3w"]
-[ext_resource type="Texture2D" uid="uid://ke4teevygl2i" path="res://assets/tilemap.png" id="1_rpdab"]
 [ext_resource type="PackedScene" uid="uid://x2jvib7yndaw" path="res://scenes/player_controller.tscn" id="2_jmpb2"]
-[ext_resource type="Texture2D" uid="uid://cdr6mkrw2y1xc" path="res://assets/conveyors.png" id="4_ddqp5"]
+[ext_resource type="TileSet" uid="uid://2npkw8bs4qxy" path="res://assets/groundtileset.tres" id="3_b0nem"]
 [ext_resource type="Texture2D" uid="uid://c2bq7hqnrjixl" path="res://assets/utilstiles.png" id="4_ucbsd"]
-[ext_resource type="Texture2D" uid="uid://rtnyhqv3g2rw" path="res://assets/machines.png" id="6_7qr1p"]
-[ext_resource type="Texture2D" uid="uid://ckke31yqgbyws" path="res://assets/decorations.png" id="7_5fme1"]
+[ext_resource type="Texture2D" uid="uid://ntlamp3jjeo2" path="res://assets/unbreakable.png" id="6_7qr1p"]
+[ext_resource type="TileSet" uid="uid://c2x8xpb8wub11" path="res://assets/tileset.tres" id="6_x0xbu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gio65"]
 shader = ExtResource("1_g5j3w")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqaqq"]
-texture = ExtResource("1_rpdab")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-0:1/size_in_atlas = Vector2i(1, 3)
-0:1/0 = 0
-1:1/size_in_atlas = Vector2i(1, 2)
-1:1/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-3:1/0 = 0
-2:1/0 = 0
-3:2/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-6:1/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-5:1/0 = 0
-4:1/0 = 0
-4:2/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-2:2/size_in_atlas = Vector2i(1, 2)
-2:2/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t8aaq"]
-texture = ExtResource("4_ucbsd")
-0:0/size_in_atlas = Vector2i(2, 2)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_2uv2n"]
-tile_shape = 1
-tile_layout = 5
-tile_offset_axis = 1
-tile_size = Vector2i(32, 16)
-custom_data_layer_0/name = "type"
-custom_data_layer_0/type = 4
-sources/1 = SubResource("TileSetAtlasSource_dqaqq")
-sources/2 = SubResource("TileSetAtlasSource_t8aaq")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2tqcy"]
 shader = ExtResource("1_g5j3w")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cf48u"]
-texture = ExtResource("4_ddqp5")
-0:0/size_in_atlas = Vector2i(2, 2)
-0:0/animation_columns = 3
-0:0/animation_frame_0/duration = 0.1
-0:0/animation_frame_1/duration = 0.1
-0:0/animation_frame_2/duration = 0.1
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(-1, -1)
-0:0/0/custom_data_0 = "bottom"
-0:0/0/custom_data_1 = true
-0:2/size_in_atlas = Vector2i(2, 2)
-0:2/animation_columns = 3
-0:2/animation_frame_0/duration = 0.1
-0:2/animation_frame_1/duration = 0.1
-0:2/animation_frame_2/duration = 0.1
-0:2/0 = 0
-0:2/0/custom_data_0 = "up"
-0:2/0/custom_data_1 = true
-0:4/size_in_atlas = Vector2i(2, 2)
-0:4/animation_frame_0/duration = 0.1
-0:4/animation_frame_1/duration = 0.1
-0:4/animation_frame_2/duration = 0.1
-0:4/0 = 0
-0:4/0/custom_data_0 = "right"
-0:4/0/custom_data_1 = true
-0:6/size_in_atlas = Vector2i(2, 2)
-0:6/animation_frame_0/duration = 0.1
-0:6/animation_frame_1/duration = 0.1
-0:6/animation_frame_2/duration = 0.1
-0:6/0 = 0
-0:6/0/custom_data_0 = "left"
-0:6/0/custom_data_1 = true
-0:8/size_in_atlas = Vector2i(2, 2)
-0:8/animation_frame_0/duration = 0.1
-0:8/animation_frame_1/duration = 0.1
-0:8/animation_frame_2/duration = 0.1
-0:8/0 = 0
-0:8/0/custom_data_0 = "right"
-0:8/0/custom_data_1 = true
-0:10/size_in_atlas = Vector2i(2, 2)
-0:10/animation_frame_0/duration = 0.1
-0:10/animation_frame_1/duration = 0.1
-0:10/animation_frame_2/duration = 0.1
-0:10/0 = 0
-0:10/0/custom_data_0 = "left"
-0:10/0/custom_data_1 = true
-0:12/size_in_atlas = Vector2i(2, 2)
-0:12/animation_frame_0/duration = 0.1
-0:12/animation_frame_1/duration = 0.1
-0:12/animation_frame_2/duration = 0.1
-0:12/0 = 0
-0:12/0/custom_data_0 = "bottom"
-0:12/0/custom_data_1 = true
-0:14/size_in_atlas = Vector2i(2, 2)
-0:14/animation_frame_0/duration = 0.1
-0:14/animation_frame_1/duration = 0.1
-0:14/animation_frame_2/duration = 0.1
-0:14/0 = 0
-0:14/0/custom_data_0 = "up"
-0:14/0/custom_data_1 = true
-0:16/size_in_atlas = Vector2i(2, 2)
-0:16/animation_frame_0/duration = 0.1
-0:16/animation_frame_1/duration = 0.1
-0:16/animation_frame_2/duration = 0.1
-0:16/0 = 0
-0:16/0/custom_data_0 = "left"
-0:16/0/custom_data_1 = true
-0:18/size_in_atlas = Vector2i(2, 2)
-0:18/animation_frame_0/duration = 0.1
-0:18/animation_frame_1/duration = 0.1
-0:18/animation_frame_2/duration = 0.1
-0:18/0 = 0
-0:18/0/custom_data_0 = "bottom"
-0:18/0/custom_data_1 = true
-0:20/size_in_atlas = Vector2i(2, 2)
-0:20/animation_frame_0/duration = 0.1
-0:20/animation_frame_1/duration = 0.1
-0:20/animation_frame_2/duration = 0.1
-0:20/0 = 0
-0:20/0/custom_data_0 = "right"
-0:20/0/custom_data_1 = true
-0:24/size_in_atlas = Vector2i(2, 2)
-0:24/0 = 0
-0:26/size_in_atlas = Vector2i(2, 2)
-0:26/0 = 0
-2:26/size_in_atlas = Vector2i(2, 2)
-2:26/0 = 0
-6:0/size_in_atlas = Vector2i(2, 2)
-6:0/animation_frame_0/duration = 0.1
-6:0/animation_frame_1/duration = 0.1
-6:0/animation_frame_2/duration = 0.1
-6:0/0 = 0
-6:0/0/custom_data_1 = true
-6:2/size_in_atlas = Vector2i(2, 2)
-6:2/animation_frame_0/duration = 0.1
-6:2/animation_frame_1/duration = 0.1
-6:2/animation_frame_2/duration = 0.1
-6:2/0 = 0
-6:2/0/custom_data_1 = true
-6:4/size_in_atlas = Vector2i(2, 2)
-6:4/animation_frame_0/duration = 0.1
-6:4/animation_frame_1/duration = 0.1
-6:4/animation_frame_2/duration = 0.1
-6:4/0 = 0
-6:4/0/custom_data_1 = true
-6:6/size_in_atlas = Vector2i(2, 2)
-6:6/animation_frame_0/duration = 0.1
-6:6/animation_frame_1/duration = 0.1
-6:6/animation_frame_2/duration = 0.1
-6:6/0 = 0
-6:6/0/custom_data_1 = true
-4:24/size_in_atlas = Vector2i(2, 2)
-4:24/0 = 0
-6:24/size_in_atlas = Vector2i(2, 2)
-6:24/0 = 0
-4:26/size_in_atlas = Vector2i(2, 2)
-4:26/0 = 0
-6:26/size_in_atlas = Vector2i(2, 2)
-6:26/0 = 0
-0:28/size_in_atlas = Vector2i(2, 2)
-0:28/0 = 0
-2:28/size_in_atlas = Vector2i(2, 2)
-2:28/0 = 0
-2:30/size_in_atlas = Vector2i(2, 2)
-2:30/0 = 0
-0:30/size_in_atlas = Vector2i(2, 2)
-0:30/0 = 0
-0:22/size_in_atlas = Vector2i(2, 2)
-0:22/animation_frame_0/duration = 0.1
-0:22/animation_frame_1/duration = 0.1
-0:22/animation_frame_2/duration = 0.1
-0:22/0 = 0
-0:22/0/custom_data_0 = "up"
-0:22/0/custom_data_1 = true
-2:24/size_in_atlas = Vector2i(2, 2)
-2:24/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e66cg"]
-texture = ExtResource("6_7qr1p")
-texture_region_size = Vector2i(32, 32)
-0:0/animation_frame_0/duration = 0.25
-0:0/animation_frame_1/duration = 0.25
-0:0/animation_frame_2/duration = 0.25
-0:0/0 = 0
-0:2/animation_columns = 3
-0:2/animation_frame_0/duration = 0.5
-0:2/animation_frame_1/duration = 0.25
-0:2/animation_frame_2/duration = 0.5
-0:2/0 = 0
-0:1/0 = 0
-0:3/size_in_atlas = Vector2i(1, 2)
-0:3/animation_frame_0/duration = 0.25
-0:3/animation_frame_1/duration = 0.25
-0:3/animation_frame_2/duration = 0.25
-0:3/animation_frame_3/duration = 0.25
-0:3/animation_frame_4/duration = 0.25
-0:3/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5dly"]
-texture = ExtResource("7_5fme1")
-texture_region_size = Vector2i(32, 32)
-1:0/0 = 0
-2:0/size_in_atlas = Vector2i(1, 2)
-2:0/0 = 0
-3:0/0 = 0
-0:0/size_in_atlas = Vector2i(1, 2)
-0:0/0 = 0
-0:2/size_in_atlas = Vector2i(1, 2)
-0:2/0 = 0
-1:2/size_in_atlas = Vector2i(2, 4)
-1:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_agpex"]
-tile_shape = 1
-tile_layout = 5
-tile_offset_axis = 1
-tile_size = Vector2i(32, 16)
-physics_layer_0/collision_layer = 1
-custom_data_layer_0/name = "direction"
-custom_data_layer_0/type = 4
-custom_data_layer_1/name = "acceptItem"
-custom_data_layer_1/type = 1
-sources/2 = SubResource("TileSetAtlasSource_cf48u")
-sources/3 = SubResource("TileSetAtlasSource_e66cg")
-sources/4 = SubResource("TileSetAtlasSource_h5dly")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b0nem"]
+shader = ExtResource("1_g5j3w")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qu4pc"]
 texture = ExtResource("4_ucbsd")
@@ -268,7 +37,24 @@ custom_data_layer_0/name = "direction"
 custom_data_layer_0/type = 4
 sources/3 = SubResource("TileSetAtlasSource_qu4pc")
 
-[node name="Map" type="Node2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e66cg"]
+texture = ExtResource("6_7qr1p")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+2:0/size_in_atlas = Vector2i(1, 3)
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5fme1"]
+tile_shape = 1
+tile_layout = 5
+tile_offset_axis = 1
+tile_size = Vector2i(32, 16)
+sources/0 = SubResource("TileSetAtlasSource_e66cg")
+
+[node name="gamescene" type="Node2D"]
 
 [node name="PlayerController" parent="." instance=ExtResource("2_jmpb2")]
 
@@ -276,20 +62,32 @@ sources/3 = SubResource("TileSetAtlasSource_qu4pc")
 texture_filter = 2
 material = SubResource("ShaderMaterial_gio65")
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAD7//f/AQAAAAAAAAD7//j/AQAAAAAAAAD7//n/AQAAAAAAAAD7//r/AQAAAAAAAAD7//v/AQAAAAAAAAD7//z/AQAAAAAAAAD7//3/AQAAAAAAAAD7//7/AQAAAAAAAAD7////AQAAAAAAAAD7/wAAAQAAAAAAAAD7/wEAAQAAAAAAAAD7/wIAAQAAAAAAAAD7/wMAAQAAAAAAAAD7/wQAAQAAAAAAAAD7/wUAAQAAAAAAAAD7/wYAAQAAAAAAAAD7/wcAAQAAAAAAAAD7/wgAAQAAAAAAAAD8//f/AQAAAAAAAAD8//j/AQAAAAAAAAD8//n/AQAAAAAAAAD8//r/AQAAAAAAAAD8//v/AQAAAAAAAAD8//z/AQAAAAAAAAD8//3/AQAAAAAAAAD8//7/AQAAAAAAAAD8////AQAAAAAAAAD8/wAAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wIAAQAAAAAAAAD8/wMAAQAAAAAAAAD8/wQAAQAAAAAAAAD8/wUAAQAAAAAAAAD8/wYAAQAAAAAAAAD8/wcAAQAAAAAAAAD8/wgAAQAAAAAAAAD9//f/AQAAAAAAAAD9//j/AQAAAAAAAAD9//n/AQAAAAAAAAD9//r/AQAAAAAAAAD9//v/AQAAAAAAAAD9//z/AQAAAAAAAAD9//3/AQAAAAAAAAD9//7/AQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAD9/wEAAQAAAAAAAAD9/wIAAQAAAAAAAAD9/wMAAQAAAAAAAAD9/wQAAQAAAAAAAAD9/wUAAQAAAAAAAAD9/wYAAQAAAAAAAAD9/wcAAQAAAAAAAAD9/wgAAQAAAAAAAAD+//f/AQAAAAAAAAD+//j/AQAAAAAAAAD+//n/AQAAAAAAAAD+//r/AQAAAAAAAAD+//v/AQAAAAAAAAD+//z/AQAAAAAAAAD+//3/AQAAAAAAAAD+//7/AQAAAAAAAAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD+/wEAAQAAAAAAAAD+/wIAAQAAAAAAAAD+/wMAAQAAAAAAAAD+/wQAAQAAAAAAAAD+/wUAAQAAAAAAAAD+/wYAAQAAAAAAAAD+/wcAAQAAAAAAAAD+/wgAAQAAAAAAAAD///f/AQAAAAAAAAD///j/AQAAAAAAAAD///n/AQAAAAAAAAD///r/AQAAAAAAAAD///v/AQAAAAAAAAD///z/AQAAAAAAAAD///3/AQAAAAAAAAD///7/AQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAD//wEAAQAAAAAAAAD//wIAAQAAAAAAAAD//wMAAQAAAAAAAAD//wQAAQAAAAAAAAD//wUAAQAAAAAAAAD//wYAAQAAAAAAAAD//wcAAQAAAAAAAAD//wgAAQAAAAAAAAAAAPf/AQAAAAAAAAAAAPj/AQAAAAAAAAAAAPn/AQAAAAAAAAAAAPr/AQAAAAAAAAAAAPv/AQAAAAAAAAAAAPz/AQAAAAAAAAAAAP3/AQAAAAAAAAAAAP7/AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAABAPf/AQAAAAAAAAABAPj/AQAAAAAAAAABAPn/AQAAAAAAAAABAPr/AQAAAAAAAAABAPv/AQAAAAAAAAABAPz/AQAAAAAAAAABAP3/AQAAAAAAAAABAP7/AQAAAAAAAAABAP//AQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAABAAYAAQAAAAAAAAABAAcAAQAAAAAAAAABAAgAAQAAAAAAAAACAPf/AQAAAAAAAAACAPj/AQAAAAAAAAACAPn/AQAAAAAAAAACAPr/AQAAAAAAAAACAPv/AQAAAAAAAAACAPz/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAACAAUAAQAAAAAAAAACAAYAAQAAAAAAAAACAAcAAQAAAAAAAAACAAgAAQAAAAAAAAADAPf/AQAAAAAAAAADAPj/AQAAAAAAAAADAPn/AQAAAAAAAAADAPr/AQAAAAAAAAADAPv/AQAAAAAAAAADAPz/AQAAAAAAAAADAP3/AQAAAAAAAAADAP7/AQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAADAAYAAQAAAAAAAAADAAcAAQAAAAAAAAADAAgAAQAAAAAAAAAEAPf/AQAAAAAAAAAEAPj/AQAAAAAAAAAEAPn/AQAAAAAAAAAEAPr/AQAAAAAAAAAEAPv/AQAAAAAAAAAEAPz/AQAAAAAAAAAEAP3/AQAAAAAAAAAEAP7/AQAAAAAAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQAAAAAAAAAFAPf/AQAAAAAAAAAFAPj/AQAAAAAAAAAFAPn/AQAAAAAAAAAFAPr/AQAAAAAAAAAFAPv/AQAAAAAAAAAFAPz/AQAAAAAAAAAFAP3/AQAAAAAAAAAFAP7/AQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQAAAAAAAAAFAAgAAQAAAAAAAAAGAPf/AQAAAAAAAAAGAPj/AQAAAAAAAAAGAPn/AQAAAAAAAAAGAPr/AQAAAAAAAAAGAPv/AQAAAAAAAAAGAPz/AQAAAAAAAAAGAP3/AQAAAAAAAAAGAP7/AQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAcAAQACAAAAAAAGAAgAAQACAAAAAAAHAPf/AQAAAAAAAAAHAPj/AQAAAAAAAAAHAPn/AQAAAAAAAAAHAPr/AQAAAAAAAAAHAPv/AQAAAAAAAAAHAPz/AQAAAAAAAAAHAP3/AQAAAAAAAAAHAP7/AQAAAAAAAAAHAAAAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAIAAQAAAAAAAAAHAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAHAAUAAQAAAAAAAAAHAAYAAQACAAAAAAAHAAcAAQACAAAAAAAHAAgAAQACAAAAAAAIAPf/AQAAAAAAAAAIAPj/AQAAAAAAAAAIAPn/AQAAAAAAAAAIAPr/AQAAAAAAAAAIAPv/AQAAAAAAAAAIAPz/AQAAAAAAAAAIAP3/AQAAAAAAAAAIAP7/AQAAAAAAAAAIAAAAAQAAAAAAAAAIAAEAAQAAAAAAAAAIAAIAAQAAAAAAAAAIAAMAAQAAAAAAAAAIAAQAAQAAAAAAAAAIAAUAAQAAAAAAAAAIAAYAAQACAAAAAAAIAAcAAQACAAAAAAAIAAgAAQACAAAAAAAIAAkAAQACAAAAAAAHAAkAAQACAAAAAAAJAAgAAQACAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAAGAP//AQAAAAAAAAAHAP//AQAAAAAAAAAIAP//AQAAAAAAAAA=")
-tile_set = SubResource("TileSet_2uv2n")
+tile_map_data = PackedByteArray("AAD7//f/AQAAAAAAAAD7//j/AQAAAAAAAAD7//n/AQAAAAAAAAD7//r/AQAAAAAAAAD7//v/AQAAAAAAAAD7//z/AQAAAAAAAAD7//3/AQAAAAAAAAD7//7/AQAAAAAAAAD7////AQAAAAAAAAD7/wAAAQAAAAAAAAD7/wEAAQAAAAAAAAD7/wIAAQAAAAAAAAD7/wMAAQAAAAAAAAD7/wQAAQAAAAAAAAD7/wUAAQAAAAAAAAD7/wYAAQAAAAAAAAD7/wcAAQAAAAAAAAD7/wgAAQAAAAAAAAD8//f/AQAAAAAAAAD8//j/AQAAAAAAAAD8//n/AQAAAAAAAAD8//r/AQAAAAAAAAD8//v/AQAAAAAAAAD8//z/AQAAAAAAAAD8//3/AQAAAAAAAAD8//7/AQAAAAAAAAD8////AQAAAAAAAAD8/wAAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wIAAQAAAAAAAAD8/wMAAQAAAAAAAAD8/wQAAQAAAAAAAAD8/wUAAQAAAAAAAAD8/wYAAQAAAAAAAAD8/wcAAQAAAAAAAAD8/wgAAQAAAAAAAAD9//f/AQAAAAAAAAD9//j/AQAAAAAAAAD9//n/AQAAAAAAAAD9//r/AQAAAAAAAAD9//v/AQAAAAAAAAD9//z/AQAAAAAAAAD9//3/AQAAAAAAAAD9//7/AQAAAAAAAAD9/wEAAQAAAAAAAAD9/wIAAQAAAAAAAAD9/wMAAQAAAAAAAAD9/wQAAQAAAAAAAAD9/wUAAQAAAAAAAAD9/wYAAQAAAAAAAAD9/wcAAQAAAAAAAAD9/wgAAQAAAAAAAAD+//f/AQAAAAAAAAD+//j/AQAAAAAAAAD+//n/AQAAAAAAAAD+//r/AQAAAAAAAAD+//v/AQAAAAAAAAD+//z/AQAAAAAAAAD+//3/AQAAAAAAAAD+//7/AQAAAAAAAAD+/wEAAQAAAAAAAAD+/wIAAQAAAAAAAAD+/wMAAQAAAAAAAAD+/wQAAQAAAAAAAAD+/wUAAQAAAAAAAAD+/wYAAQAAAAAAAAD+/wcAAQAAAAAAAAD+/wgAAQAAAAAAAAD///f/AQAAAAAAAAD///j/AQAAAAAAAAD///n/AQAAAAAAAAD///r/AQAAAAAAAAD///v/AQAAAAAAAAD///z/AQAAAAAAAAD///3/AQAAAAAAAAD///7/AQAAAAAAAAD/////AQAAAAAAAAD//wMAAQAAAAAAAAD//wQAAQAAAAAAAAD//wUAAQAAAAAAAAD//wYAAQAAAAAAAAD//wcAAQAAAAAAAAD//wgAAQAAAAAAAAAAAPf/AQAAAAAAAAAAAPj/AQAAAAAAAAAAAPn/AQAAAAAAAAAAAPr/AQAAAAAAAAAAAPv/AQAAAAAAAAAAAPz/AQAAAAAAAAAAAP3/AQAAAAAAAAAAAP7/AQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAABAPf/AQAAAAAAAAABAPj/AQAAAAAAAAABAPn/AQAAAAAAAAABAPr/AQAAAAAAAAABAPv/AQAAAAAAAAABAPz/AQAAAAAAAAABAP3/AQAAAAAAAAABAP7/AQAAAAAAAAABAP//AQAAAAAAAAABAAAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAABAAYAAQAAAAAAAAABAAcAAQAAAAAAAAABAAgAAQAAAAAAAAACAPf/AQAAAAAAAAACAPj/AQAAAAAAAAACAPn/AQAAAAAAAAACAPr/AQAAAAAAAAACAPv/AQAAAAAAAAACAPz/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAACAAQAAQAAAAAAAAACAAUAAQAAAAAAAAACAAYAAQAAAAAAAAACAAcAAQAAAAAAAAACAAgAAQAAAAAAAAADAPf/AQAAAAAAAAADAPj/AQAAAAAAAAADAPn/AQAAAAAAAAADAPr/AQAAAAAAAAADAPv/AQAAAAAAAAADAPz/AQAAAAAAAAADAP3/AQAAAAAAAAADAP7/AQAAAAAAAAADAAAAAQAAAAAAAAADAAEAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAADAAYAAQAAAAAAAAADAAcAAQAAAAAAAAADAAgAAQAAAAAAAAAEAPf/AQAAAAAAAAAEAPj/AQAAAAAAAAAEAPn/AQAAAAAAAAAEAPr/AQAAAAAAAAAEAPv/AQAAAAAAAAAEAPz/AQAAAAAAAAAEAP3/AQAAAAAAAAAEAP7/AQAAAAAAAAAEAAAAAQAAAAAAAAAEAAEAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAEAAgAAQAAAAAAAAAFAPf/AQAAAAAAAAAFAPj/AQAAAAAAAAAFAPn/AQAAAAAAAAAFAPr/AQAAAAAAAAAFAPv/AQAAAAAAAAAFAPz/AQAAAAAAAAAFAP3/AQAAAAAAAAAFAP7/AQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQAAAAAAAAAFAAgAAQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAD//wEAAQAAAAAAAAD//wIAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD+////AQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAA=")
+tile_set = ExtResource("3_b0nem")
 
 [node name="MachineLayer" type="TileMapLayer" parent="." groups=["movement"]]
 texture_filter = 2
 material = SubResource("ShaderMaterial_2tqcy")
 position = Vector2(0, -40)
 scale = Vector2(5, 5)
-tile_map_data = PackedByteArray("AAABAP//BAACAAAAAAABAAAABAABAAAAAAABAAEABAAAAAIAAAABAAIABAADAAAAAAABAP7/BAAAAAAAAAAEAAQABAAAAAIAAAD9//7/BAAAAAIAAAD9//3/BAAAAAIAAAD9//z/BAAAAAIAAAD9//v/BAAAAAIAAAD9//r/BAAAAAIAAAD9//n/BAAAAAIAAAAGAPr/BAAAAAAAAAAFAPr/BAAAAAAAAAAEAPn/BAAAAAAAAAADAPn/BAAAAAAAAAACAPn/BAAAAAAAAAABAPn/BAAAAAAAAAAHAP7/BAAAAAAAAAAGAP7/BAAAAAAAAAAFAP7/BAAAAAAAAAAEAP7/BAAAAAAAAAADAAcABAAAAAAAAAADAAgABAAAAAAAAAD+/wEABAADAAAAAAD//wIABAADAAAAAAAAAAIABAADAAAAAAABAAMABAADAAAAAAA=")
-tile_set = SubResource("TileSet_agpex")
+tile_set = ExtResource("6_x0xbu")
 
 [node name="UtilsLayer" type="TileMapLayer" parent="."]
 texture_filter = 2
-material = SubResource("ShaderMaterial_2tqcy")
+material = SubResource("ShaderMaterial_b0nem")
 position = Vector2(0, -40)
 scale = Vector2(5, 5)
 tile_set = SubResource("TileSet_p0xcg")
+
+[node name="UnbreakableLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, -40)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAABAAAAAAAAAAAAAAAAAAEAAAABAAAAAAD//wAAAAABAAEAAAAAAP//AAAAAAEAAAAAAAAAAAACAAAAAAA=")
+tile_set = SubResource("TileSet_5fme1")
+
+[node name="TransparentLayer" type="TileMapLayer" parent="."]
+self_modulate = Color(1, 1, 1, 0.32549)
+position = Vector2(0, -40)
+scale = Vector2(5, 5)
+tile_map_data = PackedByteArray("AAABAP3/BAABAAAAAAACAPz/BAABAAAAAAA=")
+tile_set = ExtResource("6_x0xbu")

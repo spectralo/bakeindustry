@@ -11,14 +11,18 @@ config_version=5
 [application]
 
 config/name="bakeindustry"
-run/main_scene="uid://bk57ojj02idl5"
+run/main_scene="uid://88k702f06ni6"
 config/features=PackedStringArray("4.4", "Mobile")
-boot_splash/bg_color=Color(0.196078, 0.2, 0.32549, 1)
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scripts/global.gd"
+Trans="*res://scenes/transitioner.tscn"
 
 [display]
 

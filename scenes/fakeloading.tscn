@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://drbmei14vwkai"]
+
+[ext_resource type="Texture2D" uid="uid://cv406bvk73rnf" path="res://assets/gamenamwe/loading.png" id="1_drh7h"]
+[ext_resource type="Script" uid="uid://mmkiiyvx76dt" path="res://scenes/fakeloading.gd" id="1_mndof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mndof"]
+atlas = ExtResource("1_drh7h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgcsf"]
+atlas = ExtResource("1_drh7h")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1d6d"]
+atlas = ExtResource("1_drh7h")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cfqt"]
+atlas = ExtResource("1_drh7h")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a85wn"]
+atlas = ExtResource("1_drh7h")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgrks"]
+atlas = ExtResource("1_drh7h")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1be6k"]
+atlas = ExtResource("1_drh7h")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8trrb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mndof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgcsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1d6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cfqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a85wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgrks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1be6k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="fakeloading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mndof")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+scale = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_8trrb")
+frame_progress = 0.113747
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
